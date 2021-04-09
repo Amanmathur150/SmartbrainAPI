@@ -13,9 +13,7 @@ const signin = require("./controllers/signin")
 const db = database1({
     client: 'pg',
     connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: true
 });
 
 
