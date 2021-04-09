@@ -12,12 +12,10 @@ const signin = require("./controllers/signin")
 
 const db = database1({
     client: 'pg',
-    connection: {
-      host : '127.0.0.1',
-      user : 'postgres',
-      password : 'aman',
-      database : 'smart-brain'
-    }
+    connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 
