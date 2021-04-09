@@ -24,7 +24,7 @@ const handlesignup = (db , bcrypt , saltRounds) => (req , res )=>{
                 .into('login')
                 .returning('*')
                 .then((loginemail ) =>{
-                    console.log(loginemail[0])
+                    
                     return trx("users").returning("*").insert({
                         email : loginemail[0].email,
                         id : Number(loginemail[0].id),  
@@ -35,12 +35,12 @@ const handlesignup = (db , bcrypt , saltRounds) => (req , res )=>{
                         face : 0
                     })
                 .then(user=>{
-                        console.log(user[0])
+                        
                         res.json(user[0])
                     })
                 }).then(trx.commit).catch(trx.rollback)
         }).catch(err=>res.status(404).json(err))}).catch(err=>{
-            console.log(err)
+            
         })
 
 

@@ -4,12 +4,12 @@ const handlesignin = (db , bcrypt)=> (req , res)=>{
 
     db.select('*').from('login').where({email : email}).then(result0=>{
         bcrypt.compare(password, result0[0].password, function(err, result) {
-            console.log(result)
+            
             if (result){
                 db('users').where({
                     email: result0[0].email
                 }).select('*').then(user=>{
-                    console.log(user[0])
+                    
                     res.json(user[0])
                 })
                 

@@ -63,7 +63,7 @@ app.post("/apicall", faceupdate.handleClearifyApi())
 
 app.get("/profile/:name" ,  (req , res)=>{
     const name = req.params.name;
-    console.log(name)
+    
     let respond=false;
     for (let user of database.user){
         if (user.name == name){

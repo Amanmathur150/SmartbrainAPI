@@ -6,12 +6,12 @@ const app = new Clarifai.App({
    });
 
 const handleClearifyApi = () =>(req, res)=>{
-    console.log(req.body.ImageURL)
+    
     app.models.predict(Clarifai.FACE_DETECT_MODEL ,req.body.ImageURL).then(respond=>{
-        console.log(respond)
+        
         res.json(respond);
     }).catch(err=>{
-        res.json("Nahi chal raha tera ye ")
+        res.json("API IS Not Responding ")
     })
 }
 
@@ -53,7 +53,7 @@ const handlefaceupdate = (db) =>(req,res)=>{
                 db('users').where({
                     email: email
                   }).select('*').then(user=>{
-                      console.log(user[0])
+                      
                       res.json(user[0])
                   })
             })
