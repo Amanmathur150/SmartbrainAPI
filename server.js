@@ -93,6 +93,6 @@ app.get("/profile/:name" ,  (req , res)=>{
     }
 })
 
-app.listen(3000 , ()=>{
-    console.log("Port IS start On 3000")
+app.listen(process.env.PORT ||3000 , ()=>{
+    console.log(`Port IS start On ${process.env.PORT}`)
 })
