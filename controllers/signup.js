@@ -1,3 +1,11 @@
+const express = require("express")
+
+const app = express();
+
+app.use(express.json());
+
+app.use(cors());
+
 const handlesignup = (db , bcrypt , saltRounds) => (req , res )=>{
     const {name, password , email} = req.body;
     
